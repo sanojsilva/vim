@@ -126,10 +126,15 @@ endif
 " ============================================================================
 " Vim settings and mappings
 " You can edit them as you wish
-let mapleader = ";"
-nnoremap <Leader>s :w<Enter>
-nnoremap <Leader>q :q<Enter>
-nnoremap <Leader>n :NERDTreeToggle<Enter>
+let mapleader = " "
+let g:user_emmet_leader_key=','
+nnoremap <Leader>s :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>t :UltiSnipsEdit<CR>
+nnoremap <Leader>w  <C-w>w 
+nnoremap <Leader>f  :Files<CR> 
+inoremap jj <Esc>
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
