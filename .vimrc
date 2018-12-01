@@ -135,7 +135,7 @@ nnoremap <Leader>t :UltiSnipsEdit<CR>
 nnoremap <Leader>w  <C-w>w 
 nnoremap <Leader>f  :Files<CR> 
 nnoremap <Leader>p "+p  
-nnoremap <Leader>y "+y  
+vnoremap <Leader>y "+y  
 inoremap jj <Esc>
 
 
