@@ -134,7 +134,10 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>t :UltiSnipsEdit<CR>
 nnoremap <Leader>w  <C-w>w 
 nnoremap <Leader>f  :Files<CR> 
+nnoremap <Leader>p "+p  
+nnoremap <Leader>y "+y  
 inoremap jj <Esc>
+
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
