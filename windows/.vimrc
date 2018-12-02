@@ -1,4 +1,24 @@
+
+let vim_plug_just_installed = 0
+let vim_plug_path = expand('~/.vim/autoload/plug.vim')
+if !filereadable(vim_plug_path)
+    echo "Installing Vim-plug..."
+    echo ""
+    silent !mkdir -p ~/.vim/autoload
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let vim_plug_just_installed = 1
+endif
+
+" manually load vim-plug the first time
+if vim_plug_just_installed
+    :execute 'source '.fnameescape(vim_plug_path)
+endif
+
 call plug#begin('~/.vim/plugged')
+" Plugins from github repos:
+Plug 'KabbAmine/yowish.vim'
+"Ulti Snips
+Plug 'SirVer/ultisnips'
 " Better file browser
 Plug 'scrooloose/nerdtree'
 " Code commenter
@@ -13,8 +33,6 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
 " Autoclose
 Plug 'Townk/vim-autoclose'
-"Ulti Snips
-Plug 'SirVer/ultisnips'
 " Search results counter
 Plug 'vim-scripts/IndexedSearch'
 " XML/HTML tags navigation
@@ -42,6 +60,11 @@ Plug 't9md/vim-choosewin'
 Plug 'scrooloose/syntastic'
 " Paint css colors with the real color
 Plug 'lilydjwg/colorizer'
+" Snippets manager (SnipMate), dependencies, and snippets repo
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'honza/vim-snippets'
+Plug 'garbas/vim-snipmate'
 " Indent text object
 " Relative numbering of lines (0 is the current line)
 " (disabled by default because is very intrusive and can't be easily toggled
@@ -61,6 +84,7 @@ let mapleader = " "
 let g:user_emmet_leader_key=','
 nnoremap <Leader>s :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>qq :q!<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>t :UltiSnipsEdit<CR>
 nnoremap <Leader>w  <C-w>w 
@@ -69,12 +93,15 @@ nnoremap <Leader>p "+p
 vnoremap <Leader>y "+y  
 inoremap jj <Esc>
 
+"windows backspace handling
+set backspace=indent,eol,start
 
-
+"ultisnips handling
+let g:UltiSnipsSnippetDirectories=['~/.vim/plugged/vim-snippets/UltiSnips', 'UltiSnips']
+"let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 
-let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips', 'UltiSnips']
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
