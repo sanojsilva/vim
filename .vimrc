@@ -26,9 +26,9 @@ endif
 " this needs to be here, so vim-plug knows we are declaring the plugins we
 " want to use
 call plug#begin('~/.vim/plugged')
-
+Plugin 'flazz/vim-colorschemes'
 " Plugins from github repos:
-Plug 'KabbAmine/yowish.vim'
+" Plug 'KabbAmine/yowish.vim'
 "Ulti Snips
 Plug 'SirVer/ultisnips'
 " Override configs by directory 
@@ -428,5 +428,5 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline_symbols.readonly = '⭤'
 "let g:airline_symbols.linenr = '⭡'
 
-colorscheme yowish
+colorscheme gruvbox
 :highlight LineNr ctermfg=grey
