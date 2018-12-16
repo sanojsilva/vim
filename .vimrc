@@ -131,6 +131,7 @@ let g:user_emmet_leader_key=','
 nnoremap <Leader>s :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeFind<CR>
 nnoremap <Leader>t :UltiSnipsEdit<CR>
 nnoremap <Leader>w  <C-w>w 
 nnoremap <Leader>f  :Files<CR> 
