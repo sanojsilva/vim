@@ -134,7 +134,8 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>n :NERDTreeFind<CR>
 nnoremap <Leader>t :UltiSnipsEdit<CR>
 nnoremap <Leader>w  <C-w>w 
-nnoremap <Leader>f  :Files<CR> 
+nnoremap <Leader>f  :Files<CR>
+nnoremap <Leader>cc :noh<CR>  
 nnoremap <Leader>p "+p  
 vnoremap <Leader>y "+y  
 inoremap jj <Esc>
