@@ -1,7 +1,3 @@
-" ============================================================================
-" Vim-plug initialization
-" Avoid modify this section, unless you are very sure of what you are doing
-
 let vim_plug_just_installed = 0
 let vim_plug_path = expand('~/.vim/autoload/plug.vim')
 if !filereadable(vim_plug_path)
@@ -26,20 +22,22 @@ endif
 " this needs to be here, so vim-plug knows we are declaring the plugins we
 " want to use
 call plug#begin('~/.vim/plugged')
-Plugin 'flazz/vim-colorschemes'
+
 " Plugins from github repos:
-" Plug 'KabbAmine/yowish.vim'
-"Ulti Snips
 Plug 'SirVer/ultisnips'
 " Override configs by directory 
 Plug 'arielrossanigo/dir-configs-override.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'KabbAmine/yowish.vim'
 " Better file browser
 Plug 'scrooloose/nerdtree'
 " Code commenter
 Plug 'scrooloose/nerdcommenter'
 " Class/module browser
 Plug 'majutsushi/tagbar'
-" Code and files fuzzy finder
+" ode and files fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
 " Extension to ctrlp, for fuzzy command finder
 Plug 'fisadev/vim-ctrlp-cmdpalette'
@@ -56,7 +54,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'fisadev/fisa-vim-colorscheme'
 " Consoles as buffers
 Plug 'rosenfeld/conque-term'
-" Pending tasks list
+" ending tasks list
 Plug 'fisadev/FixedTaskList.vim'
 " Surround
 Plug 'tpope/vim-surround'
@@ -110,9 +108,11 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/Wombat'
 " Yank history navigation
 Plug 'vim-scripts/YankRing.vim'
-
-
+Plug 'flazz/vim-colorschemes'
 " Tell vim-plug we finished declaring plugins, so it can load them
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 call plug#end()
 
 " ============================================================================
@@ -126,27 +126,22 @@ endif
 " ============================================================================
 " Vim settings and mappings
 " You can edit them as you wish
+
 let mapleader = " "
 let g:user_emmet_leader_key=','
 nnoremap <Leader>s :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>n :NERDTreeFind<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
 nnoremap <Leader>t :UltiSnipsEdit<CR>
 nnoremap <Leader>w  <C-w>w 
-nnoremap <Leader>f  :Files<CR>
-nnoremap <Leader>cc :noh<CR>  
+nnoremap <Leader>f :Files<CR> 
 nnoremap <Leader>p "+p  
 vnoremap <Leader>y "+y  
 inoremap jj <Esc>
+nnoremap <Leader>c :noh<CR>
 
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-
-let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips', 'UltiSnips']
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
+" custom mappings
 
 " no vi-compatible
 set nocompatible
@@ -200,8 +195,7 @@ imap <M-Right> <ESC><c-w>l
 imap <M-Left> <ESC><c-w>h
 imap <M-Up> <ESC><c-w>k
 imap <M-Down> <ESC><c-w>j
-"noremap j k
-"noremap k j
+
 " old autocomplete keyboard shortcut
 imap <C-J> <C-X><C-O>
 
@@ -428,7 +422,14 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline_right_alt_sep = '⮃'
 "let g:airline_symbols.branch = '⭠'
 "let g:airline_symbols.readonly = '⭤'
-"let g:airline_symbols.linenr = '⭡'
+"let g:airline_symbols.linenr = '⭡'"
 
+"Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 colorscheme gruvbox
-:highlight LineNr ctermfg=grey
+:highlight LineNr ctermfg=gray
